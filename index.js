@@ -12,6 +12,10 @@ fs.writeFile('data.txt', `module.exports = '${dir}'`, (err) => {
   if (err) throw err;
   console.log('Build time file created successfully!');
 });
+export default function handler(req, res) {
+  const { name = 'World' } = req.query;
+  return res.send(`Hello ${name}!`);
+}
 
 const port = process.env.PORT || 3000;
 
